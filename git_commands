@@ -24,4 +24,5 @@ git config -l
  $ git push
 
 -----------------------------------------------------------------
-
+#Change the git url
+git remote set-url origin https://github.com/BalajiTechs/linux-learnings
