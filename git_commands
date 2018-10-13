@@ -1,0 +1,27 @@
+#create local git repo
+git init
+
+#add a file 
+git add <file>
+
+#add all modified folders
+git add .
+
+#get info about current git repo
+git config -l
+
+-----------------------------------------------------------------
+#Flow for commiting changes
+
+1. first clone the repo on local
+ $ git clone <git repo url> <folder where to clone>
+2. Do some changes
+3. Add the changed file to staged area
+ $ git add <filename>
+4. Commit the changes locally
+ $ git commit -m "your messege"
+5. Push the changes to the git repo
+ $ git push
+
+-----------------------------------------------------------------
+
