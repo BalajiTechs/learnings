@@ -1,0 +1,1 @@
+Note content moved to https://github.com/BalajiTechs/Hadoop-Scripts/blob/master/Hadoop%20Build%20from%20source/build.sh
