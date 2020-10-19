@@ -9,8 +9,16 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+jobs:
+  spellcheck:
+    name: runner / spellcheck
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code.
+      uses: actions/checkout@v2
+      
+    - name: Check Spelling (JS, Vue, HTML, Markdown, Text)
+      # You may pin to the exact commit or the version.
+      # uses: UnicornGlobal/spellcheck-github-actions@729ccf160f6e72bd078904cddd5e6244f81ee156
+      uses: UnicornGlobal/spellcheck-github-actions@0.4.0
 
-- name: Check Spelling (JS, Vue, HTML, Markdown, Text)
-  # You may pin to the exact commit or the version.
-  # uses: UnicornGlobal/spellcheck-github-actions@729ccf160f6e72bd078904cddd5e6244f81ee156
-  uses: UnicornGlobal/spellcheck-github-actions@0.4.0
