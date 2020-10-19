@@ -1,0 +1,3 @@
+Issue: "pylint command not found"
+Solution: try to uninstall and install it again(pip unistall pylint;pip install pylint)
+
