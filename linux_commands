@@ -60,6 +60,8 @@ find commands
     $ find .  -iname "*.java" -type f  -newer start_date -exec cp {} /tmp/cid \;
 7. Find all lines in one file that are present in another file
     $ for i in `cat ../../../../junit_test_result/tests.pending.txt`; do  grep -r $i skipped.txt ; done
+8. Find all result.log file  in current directory(recusrively) and follow links
+    find -L . -type f -iname "result.log"
 
 ---------------------------------------------------------------------------------------------------
 systemctl commands
@@ -230,7 +232,7 @@ Note: While extending the logical volume do 'resize2fs /dev/<vg>/<lv>' to gain t
     $ pvcreate /dev/sdb1
     $ vgextend /dev/centos /dev/sdb1
     $ lvextend /dev/centos/root /dev/sdb1
-    $ xfs_growfs /dev/centos/root
+    $ xfs_growfs /dev/centos/root (or try xfs_growfs /)
     $ df -h
 
 9. Add SWAP from lvm. To add a swap volume group (assuming /dev/VolGroup00/LogVol02 is the swap volume you want to add):
@@ -285,6 +287,13 @@ Pre-Requisite/Assumption -> you have space left in centos volume group or there 
     4. execute "mount -a"
     5. If using SELinux policy, Execute below command to label the /home correctly
     restorecon -R -v /home    
+
+
+
+-------------------------------------------------------------------------------
+Analysing disk space issue with ncdu
+go to folder that you want to analyse and run ncdu command(install it if not present.)
+
 -------------------------------------------------------------------------------
 
 Install VNC server 
@@ -491,31 +500,6 @@ Select required timezone from options
 Follow instruction to change timezone permanently
 
 --------------------------------------------------------------------------------------------------
-Installing Docker on centos 7
-    $ sudo yum install -y yum-utils   device-mapper-persistent-data   lvm2
-    $ sudo yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
-    $ sudo yum-config-manager --enable docker-ce-edge
-    $ sudo yum install docker-ce
-    $ sudo systemctl start docker
-    $ sudo docker run hello-world
-    $ sudo groupadd docker
-    $ sudo usermod -aG docker $USER
-    $ systemctl enable docker
-    $ systemctl status docker
-    $ docker --version
-Check if all required configurations are met for running docker on host machine using below steps
-    $ curl https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh > check-config.sh
-    $ bash check-config.sh 
-    $ sudo docker run --rm -it alpine ping -c4  localhost
-Installing Docker Compose
-    $ sudo curl -L https://github.com/docker/compose/releases/download/1.17.0-rc1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-    $ sudo chmod +x /usr/local/bin/docker-compose
-    $ sudo docker-compose --version
-Installing Dockermachine on Centos 7
-    $ curl -L https://github.com/docker/machine/releases/download/v0.13.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine && chmod +x /tmp/docker-machine && sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
-    $ scripts=( docker-machine-prompt.bash docker-machine-wrapper.bash docker-machine.bash ); for i in "${scripts[@]}"; do sudo wget https://raw.githubusercontent.com/docker/machine/v0.13.0/contrib/completion/bash/${i} -P /etc/bash_completion.d; done
-
---------------------------------------------------------------------------------------------------
 Setting size of gnome desktop icons(centos 7)    
     $ gsettings set org.gnome.nautilus.icon-view default-zoom-level small
 
@@ -679,3 +663,11 @@ lscpu
 --------------------------------------------------------------------------------------------------
 add user to a group in linux
 usermod -u example -g wheel
+
+--------------------------------------------------------------------------------------------------
+install pip on linux
+    $ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    $ python get-pip.py
+
+install jinja2
+    $ pip install jinja2    

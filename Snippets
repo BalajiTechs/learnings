@@ -218,6 +218,7 @@ dp          - diff put
 zo          - open folded text
 zc          - close folded text
 :diffupdate - re-scan the files for differences
+:set diffopt+=context:0  - Only show differences
 
 Delete all lines not containing 16082017
 :v/\v16082017/d  
@@ -912,9 +913,9 @@ Vagrant.configure("2") do |config|
   config.vm.box_url = 'https://github.com/myoung34/vagrant-ovirt4/blob/master/example_box/dummy.box?raw=true'
 
   config.vm.provider :ovirt4 do |ovirt|
-    ovirt.url = 'https://ovirt-mgmt.mig.in/ovirt-engine/api'
+    ovirt.url = 'https://ovirt-mgmt.example.in/ovirt-engine/api'
     ovirt.username = "admin@internal"
-    ovirt.password = "sirus177"
+    ovirt.password = "password"
     ovirt.insecure = true
     ovirt.debug = true
     ovirt.cluster = 'Apollo'
