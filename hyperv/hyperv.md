@@ -1,6 +1,14 @@
 Working with HyperV
+#### Setup/Enable HyperV on windows
 
-Assigning static ip to VM without disrupting internet
+
+#### Running a VM in HyperV
+>TODO
+
+#### Accessing VM
+>TODO
+
+#### Assigning static ip to VM without disrupting internet
 1. Check host ipconfig for "Default Switch". Let's assume ip address be 172.19.64.81 and netmask be 255.255.255.240
 2. Go/Connect/SSH to guest(assuming ubuntu guest) and execute "sudo nmtui" command.
 3. Select "Edit Connection" and press enter. Select "Wired Connection1" (assuming this is the only network connection on guest). Select "Edit" and press enter.
