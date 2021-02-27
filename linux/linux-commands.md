@@ -638,6 +638,11 @@ To make the settings affective, execute :
 rsynv folder with exculed
 rsync -av myfolder --exclude 'myfolder/exclude*' destinationhost:/path/to/destination/folder
 
+Rsync dry run
+rsync --dry-run --remove-source-files -azv  /path/to/src/ /path/to/dest
+
+Rsync copy and delete source
+rsync --dry-run --remove-source-files -azv  /path/to/src/ /path/to/dest
 --------------------------------------------------------------------------------------------------
 Replace all "home/example" to "home/exampleuser" in file exampleclient.properties
  sed -i 's/home\/example\//home\/exampleuser\//g' config.ini
